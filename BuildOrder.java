@@ -24,9 +24,7 @@ public class BuildOrder {
                 }
             }
         }
-        System.out.println(temp);
-        System.out.println(temp1);
-        System.out.println(temp2);
+
 
         for (int i = 0; i < projects.length; i++) {
             if (!(temp.toString().contains(String.valueOf(projects[i])))) {
@@ -53,7 +51,7 @@ public class BuildOrder {
             }
             else if (temp4.toString().contains(String.valueOf(temp2.charAt(i)))){
                 buildOrder[count2] = temp1.charAt(i);
-                count1--;
+                count2--;
             }
         }
 
