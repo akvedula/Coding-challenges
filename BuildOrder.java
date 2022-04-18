@@ -10,6 +10,7 @@ public class BuildOrder {
         StringBuilder temp = new StringBuilder();
         StringBuilder temp1 = new StringBuilder();
         StringBuilder temp2 = new StringBuilder();
+        StringBuilder temp4 = new StringBuilder();
         int count1 = 0;
         int count2 = projects.length-1;
         for (int i = 0; i < dependencies.length; i++){
@@ -41,16 +42,20 @@ public class BuildOrder {
                 count2--;
             }
         }
-
-        for (int i = 0; i < projects.length; i++) {
-            if (temp1.toString().contains(String.valueOf(projects[i])) && temp2.toString().contains(String.valueOf(projects[i])) ) {
-                buildOrder[count1] = projects[i];
-                count1++;
-            }
-
+        for (int i =0; i < buildOrder.length; i++){
+            temp4.append(buildOrder[i]);
         }
 
-
+        for (int i =0; i< temp1.length(); i++){
+            if (temp4.toString().contains(String.valueOf(temp1.charAt(i)))){
+                buildOrder[count1] = temp2.charAt(i);
+                count1++;
+            }
+            else if (temp4.toString().contains(String.valueOf(temp2.charAt(i)))){
+                buildOrder[count2] = temp1.charAt(i);
+                count1--;
+            }
+        }
 
         return buildOrder;
     }
